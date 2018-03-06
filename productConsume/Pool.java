@@ -7,7 +7,9 @@ import java.util.List;
 * @author quchengguo
 * @version 2018年3月6日 下午9:04:43 
 * 生产者-消费者 中间介质
-* 
+* 注意：
+* 1.当不满足条件时，循环等待（wait）
+* 2.每次添加或者删除完元素都notify（唤醒）一下线程
 */
 public class Pool {
 	private List<Integer> list = new ArrayList<Integer>();
