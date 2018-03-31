@@ -1,0 +1,13 @@
+create database mvc_test;
+use mvc_test;
+create table student(
+	sid int primary key auto_increment,
+	sname varchar(20),
+	gender varchar(10),
+	age int
+);
+
+insert into student(sname,gender,age) values ('zhangsan','male',18);
+insert into student(sname,gender,age) values ('lisi','male',20);
+insert into student(sname,gender,age) values ('wangwu','male',22);
+insert into student(sname,gender,age) values ('zhaoliu','male',18);
