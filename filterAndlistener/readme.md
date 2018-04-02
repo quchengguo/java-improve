@@ -1,5 +1,11 @@
 ## 项目介绍
 该项目为filter实现的一个统一全站编码且具有用户校验功能的案例。
+
+##需要导入的jar包
+```
+jstl所需要的jar
+jstl.jar   standard.jar
+```
 ## 注意
 * 在描述路径的时候不要使用<font color='red'>硬编码</font>，比如不要使用``` /myFiler/index.jsp```，而是使用```${request.getServletContext().getContextPath()}/index.jsp```
 * 在统一字符编码的时候将字符集配置在```web.xml```中，不要使用<font color='red'>硬编码</font>
