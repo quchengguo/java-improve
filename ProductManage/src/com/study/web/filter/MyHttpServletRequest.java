@@ -1,4 +1,4 @@
-package com.myhttpservlet.request;
+package com.study.web.filter;
 
 import java.io.UnsupportedEncodingException;
 
@@ -7,33 +7,32 @@ import javax.servlet.http.HttpServletRequestWrapper;
 
 /** 
 * @author quchengguo
-* @version 2018年4月2日 下午2:52:17 
-* 包装HttpServletRequest
 */
 public class MyHttpServletRequest extends HttpServletRequestWrapper{
-	
-	/**
-	 * 将被包装的类传入
-	 * @param request 被包装的类
-	 */
+
 	public MyHttpServletRequest(HttpServletRequest request) {
 		super(request);
 	}
 	
 	@Override
 	public String getParameter(String name) {
-		// 获取请求方式
-		if("GET".equals(super.getMethod())){
+		String method = super.getMethod();
+		
+		// 鍗冧竾涓嶈缁檔ame鍔犲弻寮曞彿
+		String value = super.getParameter(name);
+		
+		if(value == null){
+			return null;
+		}
+		
+		if("GET".equals(method)){
+//			String value = super.getParameter("name");
 			try {
-				String value = super.getParameter(name);
-				return new String(value.getBytes("ISO-8859-1"),"UTF-8");
+				return new String(value.getBytes("ISO-8859-1"), "UTF-8");
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		// post 方式
-		return super.getParameter(name);
+		return value;
 	}
-
 }

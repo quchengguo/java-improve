@@ -1,0 +1,20 @@
+body {
+	font-size:18px;
+	text-align:center;
+}
+
+table {
+	font-size:18px;
+	margin:auto;
+	border-width:1px;
+	border-style:solid;
+	border-collapse:collapse;
+	text-align:center;
+}
+
+td{
+	border-width:1px;
+	border-style:solid;
+	border-collapse:collapse;
+}
+
