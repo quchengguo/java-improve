@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="jdbc.properties"/>
+	
+	<!-- 注意元素的顺序 -->
+	<typeAliases>
+		<!-- <typeAlias type="com.study.pojo.User" alias="user"/> -->
+		<package name="com.study.pojo"/>
+	</typeAliases>
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${jdbc.driver}"/>	
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+  	<!-- 传统方式直接配置xml文件  -->
+    <!-- <mapper resource="com/study/only/dao/UserMapper.xml"/> --> 
+  	<!-- 接口代理配置的是包名(类名) -->
+     <!-- <mapper class="com.study.only.dao.UserMapper"/> -->
+   <package name="com.study.only.dao"/>
+  </mappers>
+</configuration>
