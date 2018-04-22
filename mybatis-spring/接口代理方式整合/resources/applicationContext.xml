@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+         http://www.springframework.org/schema/jdbc 
+        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+         http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!-- 三步  1.准备数据源 2.声明工厂类 3.将工厂类注入dao -->
+    <context:component-scan base-package="com.study"/>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    	<property name="driverClassName" value="${jdbc.driver}"/>
+    	<property name="url" value="${jdbc.url}"/>
+    	<property name="username" value="${jdbc.username}"/>
+    	<property name="password" value="${jdbc.password}"/>
+    </bean>
+    
+    <!-- 申明我们的sqlSession的工厂类 -->
+   	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+   		<property name="configLocation" value="classpath:SqlMapConfig.xml"/>
+   		<property name="dataSource" ref="dataSource"/>
+   	</bean>
+   	
+   	<!-- 接口代理方式的mybatis -->
+   	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+   		<property name="basePackage" value="com.study.interf"></property>
+   	</bean>
+	    
+</beans>
+    
