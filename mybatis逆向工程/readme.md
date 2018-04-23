@@ -1,5 +1,5 @@
 ## Mybatis逆向工程功能
-MMybatis逆向工程可以动态的帮助我们创建数据库表所对应的```pojo（javabean）、mapper、mapper.xml```文件
+Mybatis逆向工程可以动态的帮助我们创建数据库表所对应的```pojo（javabean）、mapper、mapper.xml```文件
 
 ## 配置步骤
 在```generatorConfig.xml```配置文件中修改: <br/>
