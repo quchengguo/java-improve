@@ -11,7 +11,11 @@ public class SmsMain {
         SmsUtil smsUtil = new SmsUtil();
         try {
             SendSmsResponse sendSmsResponse = smsUtil.sendSms("发送给谁的手机号", "模板code", "小屈", "{\"code\":\"123456\"}");
-            System.out.println(sendSmsResponse.getCode());
+             if("OK".equalsIgnoreCase(sendSmsResponse.getCode())){
+                System.out.println("发送成功");
+            }else {
+                System.out.println("发送失败，失败原因：" +  sendSmsResponse.getMessage());
+            }
         } catch (ClientException e) {
             e.printStackTrace();
         }
