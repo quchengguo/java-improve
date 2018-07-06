@@ -15,3 +15,6 @@
 * 分布式爬虫案例
 * lucene&solr案例
 * elasticsearch
+* 动态代理(JDK接口、Cglib类)
+* ali大于短信发送
+* 
