@@ -18,3 +18,4 @@
 * 动态代理(JDK接口、Cglib类)
 * ali大于短信发送
 * Jedis常用API
+* 自定义注解
