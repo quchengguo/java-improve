@@ -19,3 +19,5 @@
 * ali大于短信发送
 * Jedis常用API
 * 自定义注解
+* JUC Learning
+* Java 23种设计模式
